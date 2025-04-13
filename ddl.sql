@@ -1,3 +1,4 @@
+--La BD para la creación de estas tablas se tiene que llamar "Proyecto2"
 CREATE TABLE IF NOT EXISTS clientes (id SERIAL PRIMARY KEY, nombre VARCHAR(255) NOT NULL,correo VARCHAR(255));
 
 CREATE TABLE IF NOT EXISTS reserva (id SERIAL PRIMARY KEY, id_cliente int NOT NULL, CONSTRAINT fk_ReservaCliente FOREIGN KEY(id_cliente) REFERENCES clientes(id),estado_reserva INT NOT NULL);
@@ -15,3 +16,11 @@ CREATE TABLE IF NOT EXISTS asientos (id SERIAL PRIMARY KEY, ubicacion VARCHAR(50
 CREATE TABLE IF NOT EXISTS detalles_reserva (id SERIAL PRIMARY KEY, id_reserva INT NOT NULL, CONSTRAINT fk_DetallesreservaReserva FOREIGN KEY (id_reserva) REFERENCES reserva(id), id_asiento INT NOT NULL, CONSTRAINT fk_DetallesreservaAsientos FOREIGN KEY (id_asiento) REFERENCES asientos(id));
 
 ALTER TABLE asientos ALTER COLUMN ubicacion TYPE INT USING ubicacion::integer;
+
+--Esto solo ejecutarlo una única vez:
+CREATE USER user_proyecto2 WITH PASSWORD 'proyecto2_2025';
+GRANT CONNECT ON DATABASE "Proyecto2" TO user_proyecto2;
+GRANT USAGE ON SCHEMA public TO user_proyecto2;
+GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA public TO user_proyecto2;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO user_proyecto2;
+GRANT TRIGGER ON ALL TABLES IN SCHEMA public TO user_proyecto2;
