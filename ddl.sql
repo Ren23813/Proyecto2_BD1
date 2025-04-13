@@ -13,3 +13,5 @@ CREATE TABLE IF NOT EXISTS funciones (id SERIAL PRIMARY KEY, id_sala INT NOT NUL
 CREATE TABLE IF NOT EXISTS asientos (id SERIAL PRIMARY KEY, ubicacion VARCHAR(50) NOT NULL, id_funcion INT NOT NULL, CONSTRAINT fk_AsientosFunciones FOREIGN KEY (id_funcion) REFERENCES funciones(id), estado VARCHAR(50) NOT NULL);
 
 CREATE TABLE IF NOT EXISTS detalles_reserva (id SERIAL PRIMARY KEY, id_reserva INT NOT NULL, CONSTRAINT fk_DetallesreservaReserva FOREIGN KEY (id_reserva) REFERENCES reserva(id), id_asiento INT NOT NULL, CONSTRAINT fk_DetallesreservaAsientos FOREIGN KEY (id_asiento) REFERENCES asientos(id));
+
+ALTER TABLE asientos ALTER COLUMN ubicacion TYPE INT USING ubicacion::integer;
