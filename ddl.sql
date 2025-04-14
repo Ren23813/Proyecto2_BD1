@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS asientos (id SERIAL PRIMARY KEY, ubicacion VARCHAR(50
 CREATE TABLE IF NOT EXISTS detalles_reserva (id SERIAL PRIMARY KEY, id_reserva INT NOT NULL, CONSTRAINT fk_DetallesreservaReserva FOREIGN KEY (id_reserva) REFERENCES reserva(id), id_asiento INT NOT NULL, CONSTRAINT fk_DetallesreservaAsientos FOREIGN KEY (id_asiento) REFERENCES asientos(id));
 
 ALTER TABLE asientos ALTER COLUMN ubicacion TYPE INT USING ubicacion::integer;
+ALTER TABLE reserva ALTER COLUMN estado_reserva TYPE VARCHAR(30);
 
 --Esto solo ejecutarlo una única vez:
 CREATE USER user_proyecto2 WITH PASSWORD 'proyecto2_2025';
