@@ -25,3 +25,6 @@ GRANT USAGE ON SCHEMA public TO user_proyecto2;
 GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA public TO user_proyecto2;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO user_proyecto2;
 GRANT TRIGGER ON ALL TABLES IN SCHEMA public TO user_proyecto2;
+GRANT USAGE, SELECT, UPDATE ON SEQUENCE reserva_id_seq TO user_proyecto2;
+GRANT USAGE, SELECT, UPDATE ON SEQUENCE detalles_reserva_id_seq TO user_proyecto2;
+GRANT USAGE, SELECT, UPDATE ON SEQUENCE pagos_id_seq TO user_proyecto2;
