@@ -23,6 +23,7 @@ BEGIN
     EXECUTE 'SET session_replication_role = origin';
 END;
 $$;
+```
 
 ## Ejecución del código
 1. Ejecutar la función main(), dentro de main.py. En Visual Studio Code, con el botón F5 se corre, ubicándose dentro del archivo de main.py. 
